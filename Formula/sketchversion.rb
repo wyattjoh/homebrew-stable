@@ -2,7 +2,7 @@ class Sketchversion < Formula
   desc "Utility to download the most recent Sketch version based on your valid license."
   homepage "https://github.com/wyattjoh/sketchversion"
   url "https://github.com/wyattjoh/sketchversion/archive/v1.0.0.tar.gz"
-  sha256 "43503d7bc62f3603b36289003b2a249367e147026eb3814bebba02bfa55bc894"
+  sha256 "63e97ff8af1454ed6f369822d813e17bfdc2edb9fb0294ab19d0369b505fcdb0"
   head "https://github.com/wyattjoh/sketchversion.git"
 
   depends_on "go" => :build
