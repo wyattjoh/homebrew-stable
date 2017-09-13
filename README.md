@@ -9,3 +9,11 @@ Official [Homebrew](https://brew.sh) tap for the [cloudflare-ddns](https://githu
 ```sh
 brew install wyattjoh/stable/cloudflare-ddns
 ```
+
+## Install SketchVersion from brew
+
+Official [Homebrew](https://brew.sh) tap for the [sketchversion](https://github.com/wyattjoh/sketchversion/) tool.
+
+```sh
+brew install wyattjoh/stable/cloudflare-ddns
+```
