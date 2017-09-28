@@ -18,7 +18,7 @@ Tap for the [sketchversion](https://github.com/wyattjoh/sketchversion/) tool.
 brew install wyattjoh/stable/cloudflare-ddns
 ```
 
-## Install SketchVersion from brew
+## Install Git Publish from brew
 
 Tap for the [git-publish](https://github.com/wyattjoh/git-publish/) tool.
 
