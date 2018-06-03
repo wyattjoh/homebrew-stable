@@ -1,9 +1,9 @@
 class Ims < Formula
   desc "image manipulation service, written in Go"
   homepage "https://github.com/wyattjoh/ims"
-  url "https://github.com/wyattjoh/ims/releases/download/v1.0.0/ims_v1.0.0_darwin_amd64.tar.gz"
-  version "1.0.0"
-  sha256 "71cf38c47a64803922ba2b7775e4c53a9eae26ee786a2786a2d75375405f1284"
+  url "https://github.com/wyattjoh/ims/releases/download/v1.1.0/ims_v1.1.0_darwin_amd64.tar.gz"
+  version "1.1.0"
+  sha256 "8b7fb63681f64f0b6c31ddfbae7b5e8dec4eaee58083e22b0c60727a17d6513e"
 
   def install
     bin.install "ims"
