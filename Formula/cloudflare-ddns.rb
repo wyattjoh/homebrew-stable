@@ -3,7 +3,7 @@ class CloudflareDdns < Formula
   homepage "https://github.com/wyattjoh/cloudflare-ddns"
   url "https://github.com///releases/download/v1.0.2/cloudflare-ddns_v1.0.2_darwin_amd64.tar.gz"
   version "1.0.2"
-  sha256 "90479447fdb435b586a56b9497b7f8222e2bd758e829a8f074bf7e1a55a99600"
+  sha256 "67c2b250d461509b73c4da2957b601f8d24e913c7a6909ac8e750b12a265f5e8"
 
   def install
     bin.install "cloudflare-ddns"
