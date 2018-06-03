@@ -1,23 +1,15 @@
 class Sketchversion < Formula
   desc "Utility to download the most recent Sketch version based on your valid license."
   homepage "https://github.com/wyattjoh/sketchversion"
-  url "https://github.com/wyattjoh/sketchversion/archive/v1.0.0.tar.gz"
-  sha256 "63e97ff8af1454ed6f369822d813e17bfdc2edb9fb0294ab19d0369b505fcdb0"
-  head "https://github.com/wyattjoh/sketchversion.git"
-
-  depends_on "go" => :build
+  url "https://github.com/wyattjoh/sketchversion/releases/download/v1.0.1/sketchversion_v1.0.1_darwin_amd64.tar.gz"
+  version "1.0.1"
+  sha256 "948fb53b3042a53c7fcbf46101b420679ebf9c26cba2a504e543f549ca3c4e5b"
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/wyattjoh/sketchversion"
-    dir.install buildpath.children
-    cd dir do
-      system "go", "build", "-o", bin/"sketchversion"
-      prefix.install_metafiles
-    end
+    bin.install "sketchversion"
   end
 
   test do
-    system bin/"sketchversion", "--help"
+    system "#{bin}/sketchversion -v"
   end
 end
