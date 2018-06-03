@@ -25,3 +25,11 @@ Tap for the [git-publish](https://github.com/wyattjoh/git-publish/) tool.
 ```sh
 brew install wyattjoh/stable/git-publish
 ```
+
+## Install ims from brew
+
+Tap for the [ims](https://github.com/wyattjoh/ims/) tool.
+
+```sh
+brew install wyattjoh/stable/ims
+```
