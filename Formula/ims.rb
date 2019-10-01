@@ -6,17 +6,17 @@ class Ims < Formula
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/wyattjoh/ims/releases/download/1.3.3/ims_v1.3.3_darwin_amd64.tar.gz"
-    sha256 "d312613161a04ed7c1335500147fd5f36a91f1aacade7ac9c21379fbdc7dff4e"
+    url "https://github.com/wyattjoh/ims/releases/download/v1.3.3/ims_v1.3.3_darwin_amd64.tar.gz"
+    sha256 "f1ee0aed9c9c5aa5a49c958b62336683504b3cf342921d7c551f49e7a24a9f91"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/1.3.3/ims_v1.3.3_linux_amd64.tar.gz"
-      sha256 "d64fc33811588a49408dbe4577101495135ee0c09aa71135492d4b6026929d03"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.3.3/ims_v1.3.3_linux_amd64.tar.gz"
+      sha256 "c1f8673961077194675d16a3471b972f556437e54749d3407019632ee931a3fd"
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/wyattjoh/ims/releases/download/1.3.3/ims_v1.3.3_linux_arm64.tar.gz"
-        sha256 "16616ceba5de85713ef78cfb6eb8d8bbe696632bb8eb320c9357a64fc1d5e862"
+        url "https://github.com/wyattjoh/ims/releases/download/v1.3.3/ims_v1.3.3_linux_arm64.tar.gz"
+        sha256 "d1f99624ac9e54d5aa97da547f2aa419c3258598a39487f0265bd87c8e34fd6f"
       else
       end
     end
