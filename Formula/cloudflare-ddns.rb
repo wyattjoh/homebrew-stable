@@ -2,21 +2,21 @@
 class CloudflareDdns < Formula
   desc "Cloudflare Dynamic DNS Updater"
   homepage "https://github.com/wyattjoh/cloudflare-ddns"
-  version "1.0.11"
+  version "1.0.12"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.11/cloudflare-ddns_v1.0.11_darwin_amd64.tar.gz"
-    sha256 "c82705b6ebb42d1b56c973831098d7e208c708cb99e846015ddba0914b09685e"
+    url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.12/cloudflare-ddns_v1.0.12_darwin_amd64.tar.gz"
+    sha256 "4ae15063240fb703a7b2ac789e353b6b8b123852ca92e50a4b8b54c9e5e38ec2"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.11/cloudflare-ddns_v1.0.11_linux_amd64.tar.gz"
-      sha256 "d246144fbc786afb6dd3ea10fd660810f237d4fc143c26ecfad830d0675dc8de"
+      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.12/cloudflare-ddns_v1.0.12_linux_amd64.tar.gz"
+      sha256 "4b6fa468ace72dcd8297f6bd550f2efa2e9df72e0a94a9fde297f86d930ce32d"
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.11/cloudflare-ddns_v1.0.11_linux_arm64.tar.gz"
-        sha256 "81a5ee33df5adc54a046268ad01c256aac52230f879c2ef8307378ecda318576"
+        url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.12/cloudflare-ddns_v1.0.12_linux_arm64.tar.gz"
+        sha256 "27593e99bb5ac8abc203dfa7124e5b9b8d3b37d35bd95ebd455660167963909b"
       else
       end
     end
