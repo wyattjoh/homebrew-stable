@@ -5,20 +5,20 @@
 class Ims < Formula
   desc "image manipulation service, written in Go"
   homepage "https://github.com/wyattjoh/ims"
-  version "1.4.3"
+  version "1.4.4"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/wyattjoh/ims/releases/download/v1.4.3/ims_v1.4.3_darwin_amd64.tar.gz"
-    sha256 "2667b5154309cdd52949844726bfd608884539f0647e385d3dc8665a0932c781"
+    url "https://github.com/wyattjoh/ims/releases/download/v1.4.4/ims_v1.4.4_darwin_amd64.tar.gz"
+    sha256 "13a3e7c26f8a88a51ca314d4bf2c0c5f4af03ef01291a9fd1aa26f142acdf7de"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/wyattjoh/ims/releases/download/v1.4.3/ims_v1.4.3_linux_amd64.tar.gz"
-    sha256 "66b54458495fa417a555b7b91d131ad33d0f12cfd8d95ebce790be508cc11f8b"
+    url "https://github.com/wyattjoh/ims/releases/download/v1.4.4/ims_v1.4.4_linux_amd64.tar.gz"
+    sha256 "f6fb2b6a5367840704a0ab6197626cce8905cdbe7a49f0a20db147621fd0ccb3"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/wyattjoh/ims/releases/download/v1.4.3/ims_v1.4.3_linux_arm64.tar.gz"
-    sha256 "ee3869d21e26738daf42db024f704c5c55ba3e972f35298e17ae7144e760f2ae"
+    url "https://github.com/wyattjoh/ims/releases/download/v1.4.4/ims_v1.4.4_linux_arm64.tar.gz"
+    sha256 "105a4538e20f9f136a84fea76d8c0613e1d446391d835e839bd824099b6ffa0d"
   end
 
   def install
