@@ -5,20 +5,20 @@
 class YdnsUpdater < Formula
   desc "YDNS DNS Updater"
   homepage "https://github.com/wyattjoh/ydns-updater"
-  version "3.0.1"
+  version "3.0.2"
   bottle :unneeded
 
-  if OS.mac?
-    url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.1/ydns-updater_v3.0.1_darwin_amd64.tar.gz"
-    sha256 "00a2675373ca7c2859961960dff497c71e5d0e2d1ccf0fe111e06b594adf829b"
+  if OS.mac? && Hardware::CPU.intel?
+    url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.2/ydns-updater_v3.0.2_darwin_amd64.tar.gz"
+    sha256 "3526df6ec1c307ec917eb295e51a3c04d4d81ee67a1a761bad362df41e5c20db"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.1/ydns-updater_v3.0.1_linux_amd64.tar.gz"
-    sha256 "cf073cbe834f128c3557ac772d49ebabb9d2e0c9ab4f0f9b2f1953ae14e7a7b7"
+    url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.2/ydns-updater_v3.0.2_linux_amd64.tar.gz"
+    sha256 "fda4982ce7de208df53799566501fcb5abe738e6551cd7fb55477950e6584d75"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.1/ydns-updater_v3.0.1_linux_arm64.tar.gz"
-    sha256 "2368f69f150413d2ea1128a146cfb78d46c8220b94cb41784658ac44a10c362a"
+    url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.2/ydns-updater_v3.0.2_linux_arm64.tar.gz"
+    sha256 "784608e33e477d36b91add878a724a7f656f1190943a2749f2b45085075a00fa"
   end
 
   def install
