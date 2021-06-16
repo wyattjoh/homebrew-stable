@@ -5,24 +5,29 @@
 class Ims < Formula
   desc "image manipulation service, written in Go"
   homepage "https://github.com/wyattjoh/ims"
-  version "1.4.7"
+  version "1.4.8"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/wyattjoh/ims/releases/download/v1.4.7/ims_v1.4.7_darwin_amd64.tar.gz"
-    sha256 "1bb7cda23a5c36d85683e3e6d4895af8178620d91a1deaee4a356992f0774849"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.8/ims_v1.4.8_darwin_amd64.tar.gz"
+      sha256 "32153bc99636da18d6b6856069ef15633d7db18a6b4babb9b9436d60a40c1b65"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.8/ims_v1.4.8_darwin_arm64.tar.gz"
+      sha256 "32ccfc798349ffa0f13e1b7396a1e39ab69ff032cef04305f2030021e7a0578f"
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/wyattjoh/ims/releases/download/v1.4.7/ims_v1.4.7_darwin_arm64.tar.gz"
-    sha256 "ffc27ad1e16c9aedae7401864f7ab544bffb4df9c1cfe8157ea3feff124948b4"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/wyattjoh/ims/releases/download/v1.4.7/ims_v1.4.7_linux_amd64.tar.gz"
-    sha256 "dae4f120a23d7018af1e58a53b85edb2bbb58f53c3b0f5cc1eb7f79daf9d8fdf"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/wyattjoh/ims/releases/download/v1.4.7/ims_v1.4.7_linux_arm64.tar.gz"
-    sha256 "3e69787cbf7a1c64d64d39091b14b89128483191fcb3146a93fbbb2dc035e9fe"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.8/ims_v1.4.8_linux_amd64.tar.gz"
+      sha256 "b0b0d1642e3e6401a22ea611e896a4af9a8988edaadf095ea24b60f44951b52e"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.8/ims_v1.4.8_linux_arm64.tar.gz"
+      sha256 "7ddb4a7fa45a7cab47f0f37b5bc1f5765eaa2570ef9d592e1f08794cf459f122"
+    end
   end
 
   def install
