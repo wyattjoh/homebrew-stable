@@ -5,24 +5,44 @@
 class YdnsUpdater < Formula
   desc "YDNS DNS Updater"
   homepage "https://github.com/wyattjoh/ydns-updater"
-  version "3.0.3"
-  bottle :unneeded
+  version "3.0.4"
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.3/ydns-updater_v3.0.3_darwin_amd64.tar.gz"
-    sha256 "e55f05ea49391a0f21f64adc3fcbbcb1e5bff50738faeb13d9acc51e2291d226"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.3/ydns-updater_v3.0.3_linux_amd64.tar.gz"
-    sha256 "b4e9e1d9c1ef8d9338ba897ec56e9ce246508364feff3f0de892ffef8eaf9d58"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.3/ydns-updater_v3.0.3_linux_arm64.tar.gz"
-    sha256 "e53f2df979beadb26bf89de6a157f5b5e27ecbf772787db8a4039249314335cd"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.4/ydns-updater_v3.0.4_darwin_arm64.tar.gz"
+      sha256 "1a7f5d513997dd621cb3d3eeb0b8cd557c010e863a53daa6ff2fe355476366c5"
+
+      def install
+        bin.install "ydns-updater"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.4/ydns-updater_v3.0.4_darwin_amd64.tar.gz"
+      sha256 "68df8b38bc86addf5a1b6d0f904d46e0848b75de1c84cf9489695ddb973e1231"
+
+      def install
+        bin.install "ydns-updater"
+      end
+    end
   end
 
-  def install
-    bin.install "ydns-updater"
+  on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.4/ydns-updater_v3.0.4_linux_arm64.tar.gz"
+      sha256 "502ae960001ba05e7c5fea9074e4302713da4805745ffd030ccb73ff1c5b218c"
+
+      def install
+        bin.install "ydns-updater"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/ydns-updater/releases/download/v3.0.4/ydns-updater_v3.0.4_linux_amd64.tar.gz"
+      sha256 "d2e236e0935976b071f7a83092574a8a3eb52c0ed792703b8e3f0f35da046676"
+
+      def install
+        bin.install "ydns-updater"
+      end
+    end
   end
 
   test do
