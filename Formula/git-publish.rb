@@ -5,24 +5,44 @@
 class GitPublish < Formula
   desc "git branch publisher"
   homepage "https://github.com/wyattjoh/git-publish"
-  version "1.0.7"
-  bottle :unneeded
+  version "1.0.8"
 
-  if OS.mac?
-    url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.7/git-publish_v1.0.7_darwin_amd64.tar.gz"
-    sha256 "f0ee37449485a8f37fdd867cc8a87f1c8350b696edae80e85fb39452e9fa1513"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.7/git-publish_v1.0.7_linux_amd64.tar.gz"
-    sha256 "a120ae703fb4c308bc5fb4b96fbe8d266142e30a0a380f5691a1d367648fe55e"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.7/git-publish_v1.0.7_linux_arm64.tar.gz"
-    sha256 "813dc7bda6fde6b36aa0a6a0a2583f0a549c2097603ec4c1d8684bbb53c13ec0"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.8/git-publish_v1.0.8_darwin_amd64.tar.gz"
+      sha256 "644fa6e993704abf41be2a1297b3148bb4537082d35be27b574525ec28ade28d"
+
+      def install
+        bin.install "git-publish"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.8/git-publish_v1.0.8_darwin_arm64.tar.gz"
+      sha256 "a539c90f80787e6f2ed9ea2fc3cb406985dad575c4636a05cdc73d253e1907f4"
+
+      def install
+        bin.install "git-publish"
+      end
+    end
   end
 
-  def install
-    bin.install "git-publish"
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.8/git-publish_v1.0.8_linux_amd64.tar.gz"
+      sha256 "d28eefdfce707cfb2a9ff23ddc15730d8fba440470744695057f1fb53bae1981"
+
+      def install
+        bin.install "git-publish"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.8/git-publish_v1.0.8_linux_arm64.tar.gz"
+      sha256 "861f6163938d0ae6e4786f4a0ddb391d5626739a04a02b88ca954382f16be81f"
+
+      def install
+        bin.install "git-publish"
+      end
+    end
   end
 
   test do
