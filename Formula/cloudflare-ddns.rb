@@ -5,29 +5,44 @@
 class CloudflareDdns < Formula
   desc "Cloudflare Dynamic DNS Updater"
   homepage "https://github.com/wyattjoh/cloudflare-ddns"
-  version "1.0.25"
-  bottle :unneeded
+  version "1.0.27"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.25/cloudflare-ddns_v1.0.25_darwin_amd64.tar.gz"
-      sha256 "8a9e9f39bf650a6278e296bc8d5e6485e6464f2f5c5b83ee57e64c258ce20328"
+      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.27/cloudflare-ddns_v1.0.27_darwin_amd64.tar.gz"
+      sha256 "69bbafb2cd22bc7df28fd93428caa78deacc7810e16e75668c099ce5761b45df"
+
+      def install
+        bin.install "cloudflare-ddns"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.27/cloudflare-ddns_v1.0.27_darwin_arm64.tar.gz"
+      sha256 "5ef96813cf0c8fd9bfffa585622c61fd339a4149962ab75e3bddeab10284e0f4"
+
+      def install
+        bin.install "cloudflare-ddns"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.25/cloudflare-ddns_v1.0.25_linux_amd64.tar.gz"
-      sha256 "0c9ebc6d04e3f416040d0b1b6b1cc5e71895cc9d20a0b6a041148b6f7dd85e2c"
+      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.27/cloudflare-ddns_v1.0.27_linux_amd64.tar.gz"
+      sha256 "15871d8170291db34a0c4460b4a7590f0552c5bd7a51535704478bb2535eccf4"
+
+      def install
+        bin.install "cloudflare-ddns"
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.25/cloudflare-ddns_v1.0.25_linux_arm64.tar.gz"
-      sha256 "c00c724364ff6a9559695c5a379b286336929a925e81b96a19746f834c8dba32"
-    end
-  end
+      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.27/cloudflare-ddns_v1.0.27_linux_arm64.tar.gz"
+      sha256 "6452473b370f3d0fa6b0520e43e29e86705905f0ca08a81db34921bf3642b364"
 
-  def install
-    bin.install "cloudflare-ddns"
+      def install
+        bin.install "cloudflare-ddns"
+      end
+    end
   end
 
   test do
