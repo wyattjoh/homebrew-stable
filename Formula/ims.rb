@@ -5,33 +5,44 @@
 class Ims < Formula
   desc "image manipulation service, written in Go"
   homepage "https://github.com/wyattjoh/ims"
-  version "1.4.9"
-  bottle :unneeded
+  version "1.4.10"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.9/ims_v1.4.9_darwin_amd64.tar.gz"
-      sha256 "96fb1d6431e4a13b0afd23c65e209b7644fa4c1d45be331a60bbb266f384e92e"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.10/ims_v1.4.10_darwin_amd64.tar.gz"
+      sha256 "27e9b14cdd158820da48e0df00b98f91952d5d45bcda903b690d2476c981ef56"
+
+      def install
+        bin.install "ims"
+      end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.9/ims_v1.4.9_darwin_arm64.tar.gz"
-      sha256 "246624cd1dcbdebda79424eae0d8e4f607ebdf28d463674a9929798df990137a"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.10/ims_v1.4.10_darwin_arm64.tar.gz"
+      sha256 "512cffb587fa95af1c8dd22fa782e0767c2f4ad08c0d6bc0dd2727dc04800097"
+
+      def install
+        bin.install "ims"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.9/ims_v1.4.9_linux_amd64.tar.gz"
-      sha256 "5089204a3b46a0653f83ddc802c3aebfafcb33541842dd2d9298dfe2121bfb18"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.10/ims_v1.4.10_linux_amd64.tar.gz"
+      sha256 "ef563e16ffb08c357b4392df2f2f87ee82a771ed6ace0a4d0d0de3ac3b77e0b6"
+
+      def install
+        bin.install "ims"
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.9/ims_v1.4.9_linux_arm64.tar.gz"
-      sha256 "33fea9eb5283b7a26007405bb185ef2505aa64af4c0691d5b8c81f94f444e49d"
-    end
-  end
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.10/ims_v1.4.10_linux_arm64.tar.gz"
+      sha256 "0e4e3ea7d209a58f1dde73b6bfcc660b7b4c38746a865203dcdf5af8d1b8a46b"
 
-  def install
-    bin.install "ims"
+      def install
+        bin.install "ims"
+      end
+    end
   end
 
   test do
