@@ -5,12 +5,12 @@
 class Jwt < Formula
   desc "JWT Inspector"
   homepage "https://github.com/wyattjoh/jwt"
-  version "0.1.1"
+  version "0.1.2"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/jwt/releases/download/v0.1.1/jwt_v0.1.1_darwin_amd64.tar.gz"
-      sha256 "57b7034e77388de8d9f4251dc1ba57197d4f088a5c4e8298e4f93dc9736a57f1"
+      url "https://github.com/wyattjoh/jwt/releases/download/v0.1.2/jwt_v0.1.2_darwin_amd64.tar.gz"
+      sha256 "8e89a5702fcd44af4f71612de0e52d2e26a24eeb7f39b72dbd4a511a0e21556f"
 
       def install
         bin.install "jwt"
@@ -20,8 +20,8 @@ class Jwt < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/jwt/releases/download/v0.1.1/jwt_v0.1.1_linux_amd64.tar.gz"
-      sha256 "d0164fee9023a7890c7df5d42c605c41db0860912ef62c60911914a32d0eaa17"
+      url "https://github.com/wyattjoh/jwt/releases/download/v0.1.2/jwt_v0.1.2_linux_amd64.tar.gz"
+      sha256 "054133427167b18d40dd09327545ee8288639167ceca85e77bc67147dee17aea"
 
       def install
         bin.install "jwt"
