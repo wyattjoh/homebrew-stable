@@ -5,20 +5,20 @@
 class Ims < Formula
   desc "image manipulation service, written in Go"
   homepage "https://github.com/wyattjoh/ims"
-  version "1.4.13"
+  version "1.4.14"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.13/ims_v1.4.13_darwin_arm64.tar.gz"
-      sha256 "a9c2fc6baf03ff4ed11d2983149e4fc7ab7ab2fdffb65e9e5965b7191be51eb1"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.14/ims_v1.4.14_darwin_arm64.tar.gz"
+      sha256 "3ee3727fa45dde0eff119bccce9883923f08e0ed78d2bb92fbc268d82bf7f044"
 
       def install
         bin.install "ims"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.13/ims_v1.4.13_darwin_amd64.tar.gz"
-      sha256 "f1292d6395b99257f51a8551c7a7484842bb675b678e4496cd4d190ab17e4596"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.14/ims_v1.4.14_darwin_amd64.tar.gz"
+      sha256 "6b75c5239c28fa6e8d49abd56030890d94dd670531533ccc761c1297aa3b771e"
 
       def install
         bin.install "ims"
@@ -27,17 +27,17 @@ class Ims < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.13/ims_v1.4.13_linux_arm64.tar.gz"
-      sha256 "8a5fc5ea8de84218600d5b149da30e8b9add6c7c66afa6e2e72f5c3c8525a0d2"
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.14/ims_v1.4.14_linux_amd64.tar.gz"
+      sha256 "7602f91c802cc14a23ace52d808925fb8b435c7a233fd52e456f6a26470f0e50"
 
       def install
         bin.install "ims"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.13/ims_v1.4.13_linux_amd64.tar.gz"
-      sha256 "154e01dc1415717a9337e2deb93f2238b9db466740c55b256b95b101fe484106"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.14/ims_v1.4.14_linux_arm64.tar.gz"
+      sha256 "48eedfb374d1e4e013eefa5d1d9dd184c0671d1c6ff8f104b3d6c9c5438c2278"
 
       def install
         bin.install "ims"
