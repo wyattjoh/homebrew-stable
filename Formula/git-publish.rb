@@ -5,20 +5,20 @@
 class GitPublish < Formula
   desc "git branch publisher"
   homepage "https://github.com/wyattjoh/git-publish"
-  version "1.0.8"
+  version "1.0.9"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.8/git-publish_v1.0.8_darwin_amd64.tar.gz"
-      sha256 "644fa6e993704abf41be2a1297b3148bb4537082d35be27b574525ec28ade28d"
+    if Hardware::CPU.arm?
+      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.9/git-publish_v1.0.9_darwin_arm64.tar.gz"
+      sha256 "80c3f484ee19d2a81a1b9ae9275b5ffce87accead9b7d67c38ba4f4eb84a0a78"
 
       def install
         bin.install "git-publish"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.8/git-publish_v1.0.8_darwin_arm64.tar.gz"
-      sha256 "a539c90f80787e6f2ed9ea2fc3cb406985dad575c4636a05cdc73d253e1907f4"
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.9/git-publish_v1.0.9_darwin_amd64.tar.gz"
+      sha256 "eb8bb5a15c8adbae61c5ba9b6ea1a550ef74bdc8844253b59f59f0105e1d6e49"
 
       def install
         bin.install "git-publish"
@@ -27,17 +27,17 @@ class GitPublish < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.8/git-publish_v1.0.8_linux_amd64.tar.gz"
-      sha256 "d28eefdfce707cfb2a9ff23ddc15730d8fba440470744695057f1fb53bae1981"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.9/git-publish_v1.0.9_linux_arm64.tar.gz"
+      sha256 "3906304eb6b7160e9b3714cd5ae39b115bb74df03c9b7f5e3c5cc9f8edd8c089"
 
       def install
         bin.install "git-publish"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.8/git-publish_v1.0.8_linux_arm64.tar.gz"
-      sha256 "861f6163938d0ae6e4786f4a0ddb391d5626739a04a02b88ca954382f16be81f"
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/git-publish/releases/download/v1.0.9/git-publish_v1.0.9_linux_amd64.tar.gz"
+      sha256 "40cfd9e242036c2d58d0fdf5e306ea2b947cdbde7c3a728b7fd7c22a9975e60e"
 
       def install
         bin.install "git-publish"
