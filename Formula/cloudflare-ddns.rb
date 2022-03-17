@@ -5,20 +5,20 @@
 class CloudflareDdns < Formula
   desc "Cloudflare Dynamic DNS Updater"
   homepage "https://github.com/wyattjoh/cloudflare-ddns"
-  version "1.0.28"
+  version "1.0.29"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.28/cloudflare-ddns_v1.0.28_darwin_arm64.tar.gz"
-      sha256 "9bf59bbf182c15eef93ba8fa384af15fefd8ccadc3d301caa21c75bbf4c364d9"
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.29/cloudflare-ddns_v1.0.29_darwin_amd64.tar.gz"
+      sha256 "cd60f5049ddf57f8e15efc7436349b96c7732beff5f06bbe023b2b9f7f512744"
 
       def install
         bin.install "cloudflare-ddns"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.28/cloudflare-ddns_v1.0.28_darwin_amd64.tar.gz"
-      sha256 "cae47aca8fc8dcc1026ae4f7ffeeb29c533783dd7de729b50068d7e02b183d58"
+    if Hardware::CPU.arm?
+      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.29/cloudflare-ddns_v1.0.29_darwin_arm64.tar.gz"
+      sha256 "bf0bdf25db17bf8001d32be6844a829ddb08e30c1ce545ae8bfd1ec4522ad6a4"
 
       def install
         bin.install "cloudflare-ddns"
@@ -27,17 +27,17 @@ class CloudflareDdns < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.28/cloudflare-ddns_v1.0.28_linux_amd64.tar.gz"
-      sha256 "05bade2266e9b2a2c1a6e5bcd50c226cd2279b465e1fa5f0e05f88401ab7a113"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.29/cloudflare-ddns_v1.0.29_linux_arm64.tar.gz"
+      sha256 "361319467b12756732f1b23f78228825f2d64572867b2fbd0c609023283cc23c"
 
       def install
         bin.install "cloudflare-ddns"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.28/cloudflare-ddns_v1.0.28_linux_arm64.tar.gz"
-      sha256 "8a4a57c788c6f241cb2507e0a5e6f65c0c1b1d9f9c35781e324859386cb5ab86"
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/cloudflare-ddns/releases/download/v1.0.29/cloudflare-ddns_v1.0.29_linux_amd64.tar.gz"
+      sha256 "1dc3bf78ad067994f7e416b691bfa087e1056c991267427c2b54c806a64c30de"
 
       def install
         bin.install "cloudflare-ddns"
