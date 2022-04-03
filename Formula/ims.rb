@@ -5,20 +5,20 @@
 class Ims < Formula
   desc "image manipulation service, written in Go"
   homepage "https://github.com/wyattjoh/ims"
-  version "1.4.15"
+  version "1.4.16"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.15/ims_v1.4.15_darwin_arm64.tar.gz"
-      sha256 "33e2161c4033be4bc1856757524126e8b5c5abbfb3dccee33b199e72028e8a45"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.16/ims_v1.4.16_darwin_arm64.tar.gz"
+      sha256 "3eb87dd3c06bbb943e0ad6d2450e611bfedae0e58343324847f15ded9b19ea4e"
 
       def install
         bin.install "ims"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.15/ims_v1.4.15_darwin_amd64.tar.gz"
-      sha256 "b610812df5ecea22d5b8e373742b80cbdd86b78bf564c1ec0c5a7436dd417cf6"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.16/ims_v1.4.16_darwin_amd64.tar.gz"
+      sha256 "6859ee22757c37c748c6ec8cbf92fb9e911f096cd547a00904a9b5a7bb295672"
 
       def install
         bin.install "ims"
@@ -28,16 +28,16 @@ class Ims < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.15/ims_v1.4.15_linux_arm64.tar.gz"
-      sha256 "fc9c43e042002e79aaf932fc1132fbffde7bbefd7991bcb98cc97bc54b38b3e2"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.16/ims_v1.4.16_linux_arm64.tar.gz"
+      sha256 "85c7471d1abb2d89a23902d7bbed60c52b0e8cf0417f14eb09a9488a13fc7f76"
 
       def install
         bin.install "ims"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.15/ims_v1.4.15_linux_amd64.tar.gz"
-      sha256 "62a5bef6c83c1a7a14fdb725382d2b3056564fa6333e8e73c76d78bf5c235597"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.16/ims_v1.4.16_linux_amd64.tar.gz"
+      sha256 "15f30be70440dc6e6cf55becfc267a8b7e43ec92289eb8cae7d2121121dee71e"
 
       def install
         bin.install "ims"
