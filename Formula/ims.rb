@@ -5,20 +5,20 @@
 class Ims < Formula
   desc "image manipulation service, written in Go"
   homepage "https://github.com/wyattjoh/ims"
-  version "1.4.17"
+  version "1.4.18"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.17/ims_v1.4.17_darwin_amd64.tar.gz"
-      sha256 "7dd4d10c3d3976c630c116e07d8fe733b5127cde0d77878bb0cdc0b570c6626a"
+    if Hardware::CPU.arm?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.18/ims_v1.4.18_darwin_arm64.tar.gz"
+      sha256 "8bdd7f7c824ef194e8a415dc8797400be4985048419f121e21123b3f9475a931"
 
       def install
         bin.install "ims"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.17/ims_v1.4.17_darwin_arm64.tar.gz"
-      sha256 "3b221088bf45fcd29d20b801d63c99c7b16b0c32c327332adb21dd0feabc2c05"
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.18/ims_v1.4.18_darwin_amd64.tar.gz"
+      sha256 "8a373ca049cd07ef9a6799fab25461f625a11ec6f8ee19c7ae4e2177767c69dd"
 
       def install
         bin.install "ims"
@@ -27,17 +27,17 @@ class Ims < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.17/ims_v1.4.17_linux_amd64.tar.gz"
-      sha256 "fad6d70a535c64a7cb91f97397ab79d0f4bfd21a4aac5f4183f2e279abc3dab3"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.18/ims_v1.4.18_linux_arm64.tar.gz"
+      sha256 "ee1c48194c4f09f8347dca1fc682f55de07f91302b7190650b11946a5a3b2405"
 
       def install
         bin.install "ims"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.17/ims_v1.4.17_linux_arm64.tar.gz"
-      sha256 "a9939e4dc795507ad98e73cababa6317b10a1fe0f14a05126a5ab481124fd556"
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.18/ims_v1.4.18_linux_amd64.tar.gz"
+      sha256 "ab521047e662269ac29dc65d0ce4b8bd2fdadd30e35eb3205749155cf0f1bc12"
 
       def install
         bin.install "ims"
