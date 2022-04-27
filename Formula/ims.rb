@@ -5,20 +5,20 @@
 class Ims < Formula
   desc "image manipulation service, written in Go"
   homepage "https://github.com/wyattjoh/ims"
-  version "1.4.18"
+  version "1.4.19"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.18/ims_v1.4.18_darwin_arm64.tar.gz"
-      sha256 "8bdd7f7c824ef194e8a415dc8797400be4985048419f121e21123b3f9475a931"
+    if Hardware::CPU.intel?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.19/ims_v1.4.19_darwin_amd64.tar.gz"
+      sha256 "c763da4e40004f3f3484859f1f58a3a1f2e639b60c49c4a1085c2012c8aac70f"
 
       def install
         bin.install "ims"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.18/ims_v1.4.18_darwin_amd64.tar.gz"
-      sha256 "8a373ca049cd07ef9a6799fab25461f625a11ec6f8ee19c7ae4e2177767c69dd"
+    if Hardware::CPU.arm?
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.19/ims_v1.4.19_darwin_arm64.tar.gz"
+      sha256 "817523ebea8e33a3e40c49235b43577588ef903d922de0b4f8ba1237a8edd5e4"
 
       def install
         bin.install "ims"
@@ -28,16 +28,16 @@ class Ims < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.18/ims_v1.4.18_linux_arm64.tar.gz"
-      sha256 "ee1c48194c4f09f8347dca1fc682f55de07f91302b7190650b11946a5a3b2405"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.19/ims_v1.4.19_linux_arm64.tar.gz"
+      sha256 "ead8f8c250e33b66ca3a4cbac0eaf83baf3b9bb4ee4917cf17e4b76b09575a98"
 
       def install
         bin.install "ims"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/ims/releases/download/v1.4.18/ims_v1.4.18_linux_amd64.tar.gz"
-      sha256 "ab521047e662269ac29dc65d0ce4b8bd2fdadd30e35eb3205749155cf0f1bc12"
+      url "https://github.com/wyattjoh/ims/releases/download/v1.4.19/ims_v1.4.19_linux_amd64.tar.gz"
+      sha256 "1184c163f5c845174335919c3f6739d45b85f50a843cc5ecb903a0a2a39a7d8a"
 
       def install
         bin.install "ims"
