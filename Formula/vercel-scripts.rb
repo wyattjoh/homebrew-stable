@@ -2,8 +2,8 @@ class VercelScripts < Formula
   desc "Interactive CLI tool for managing Vercel and Next.js development workflows"
   homepage "https://github.com/wyattjoh/vercel-scripts"
   url "https://github.com/wyattjoh/vercel-scripts.git",
-      tag:      "v0.1.8",
-      revision: "7aed48ecf7d46a6c4f109cd537fc1c27206e69ae"
+      tag:      "v0.1.9",
+      revision: "6d210b1fadd91c6622d153204bc4b6800d373334"
   license "MIT"
   head "https://github.com/wyattjoh/vercel-scripts.git", branch: "main"
 
