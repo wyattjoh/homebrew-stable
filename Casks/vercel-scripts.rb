@@ -2,7 +2,7 @@
 cask "vercel-scripts" do
   desc "A powerful Deno-based CLI tool for managing Vercel and Next.js development workflows through an interactive collection of reusable scripts."
   homepage ""
-  version "0.1.6"
+  version "0.1.7"
 
   livecheck do
     skip "Auto-generated on release."
@@ -15,8 +15,8 @@ cask "vercel-scripts" do
 
   on_macos do
     on_arm do
-      url "https://github.com/wyattjoh/vercel-scripts/releases/download/v0.1.6/vercel-scripts_0.1.6_darwin_arm64.tar.gz"
-      sha256 "c48ee2db60b8a752ee1fbce9021cdce2210f94dd0e49c049f89024820dea470f"
+      url "https://github.com/wyattjoh/vercel-scripts/releases/download/v0.1.7/vercel-scripts_0.1.7_darwin_arm64.tar.gz"
+      sha256 "650fa589d772750c0d312c65584a61f9ebe73bfb5268e2dcf6afb308232207bb"
     end
   end
 
