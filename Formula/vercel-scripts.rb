@@ -3,7 +3,7 @@ class VercelScripts < Formula
   homepage "https://github.com/wyattjoh/vercel-scripts"
   url "https://github.com/wyattjoh/vercel-scripts.git",
       tag:      "v0.1.8",
-      revision: "HEAD"
+      revision: "7aed48ecf7d46a6c4f109cd537fc1c27206e69ae"
   license "ISC"
   head "https://github.com/wyattjoh/vercel-scripts.git", branch: "main"
 
