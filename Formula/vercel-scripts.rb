@@ -17,6 +17,9 @@ class VercelScripts < Formula
     
     # Install the compiled binary
     bin.install "vss"
+
+    # Generate completions using Cliffy's built-in CompletionsCommand.
+    generate_completions_from_executable(bin/"vss", "completions")
   end
 
   test do
