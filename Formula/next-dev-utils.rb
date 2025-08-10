@@ -2,8 +2,8 @@ class NextDevUtils < Formula
   desc "A powerful CLI toolkit for Next.js development, providing utilities for packaging, deploying, and debugging Next.js applications."
   homepage "https://github.com/wyattjoh/next-dev-utils"
   url "https://github.com/wyattjoh/next-dev-utils.git",
-      tag:      "v0.1.13",
-      revision: "40fbd4881ef6aadca7a4f93703ab0c3e11de4582"
+      tag:      "v2.1.4",
+      revision: "bde03e3f7a2f498613baa57b106667860d38a178"
   license "MIT"
   head "https://github.com/wyattjoh/next-dev-utils.git", branch: "main"
 
