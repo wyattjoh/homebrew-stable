@@ -33,3 +33,19 @@ Tap for the [ims](https://github.com/wyattjoh/ims/) tool.
 ```sh
 brew install wyattjoh/stable/ims
 ```
+
+## Install next-dev-utils from brew
+
+Tap for the [next-dev-utils](https://github.com/wyattjoh/next-dev-utils) tool.
+
+```sh
+brew install wyattjoh/stable/next-dev-utils
+```
+
+## Install vercel-scripts from brew
+
+Tap for the [vercel-scripts](https://github.com/wyattjoh/vercel-scripts) tool.
+
+```sh
+brew install wyattjoh/stable/vercel-scripts
+```
