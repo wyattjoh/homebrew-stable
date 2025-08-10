@@ -13,12 +13,7 @@ class VercelScripts < Formula
 
   def install
     # Compile the Deno application to a standalone binary
-    system "deno", "compile", 
-           "--allow-all", 
-           "--include=src/scripts", 
-           "--include=src/runtime",
-           "--output=vss", 
-           "src/main.ts"
+    system "deno", "task", "build"
     
     # Install the compiled binary
     bin.install "vss"
