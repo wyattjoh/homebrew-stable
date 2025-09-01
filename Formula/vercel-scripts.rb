@@ -14,9 +14,6 @@ class VercelScripts < Formula
   def install
     # Compile the Deno application to a standalone binary
     system "cargo", "install", *std_cargo_args
-    
-    # Install the compiled binary
-    bin.install "vss"
 
     # Generate completions using Cliffy's built-in CompletionsCommand.
     generate_completions_from_executable(bin/"vss", "completions")
