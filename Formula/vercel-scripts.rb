@@ -7,13 +7,13 @@ class VercelScripts < Formula
   license "MIT"
   head "https://github.com/wyattjoh/vercel-scripts.git", branch: "main"
 
-  depends_on "deno" => :build
+  depends_on "rust" => :build
   depends_on "jq"
   depends_on "git"
 
   def install
     # Compile the Deno application to a standalone binary
-    system "deno", "task", "build"
+    system "cargo", "install", *std_cargo_args
     
     # Install the compiled binary
     bin.install "vss"
