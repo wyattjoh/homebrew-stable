@@ -10,6 +10,7 @@ class VercelScripts < Formula
   depends_on "rust" => :build
   depends_on "jq"
   depends_on "git"
+  depends_on "next-dev-utils"
 
   def install
     # Compile the Deno application to a standalone binary
