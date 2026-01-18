@@ -2,8 +2,8 @@ class TrainConductor < Formula
   desc "A CLI tool for setting up git worktrees with symlinks and scripts"
   homepage "https://github.com/wyattjoh/train-conductor"
   url "https://github.com/wyattjoh/train-conductor.git",
-      tag:      "v0.1.1",
-      revision: "00fba0eeb0e1e6d3c720f26f73984018b409fe07"
+      tag:      "v0.2.0",
+      revision: "c53564cf7183f17dfb692db735a5fb4822bf5418"
   license "MIT"
   head "https://github.com/wyattjoh/train-conductor.git", branch: "main"
 
