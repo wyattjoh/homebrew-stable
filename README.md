@@ -4,7 +4,8 @@
 
 ## Install Cloudflare DDNS from brew
 
-Tap for the [cloudflare-ddns](https://github.com/wyattjoh/cloudflare-ddns/) tool.
+Tap for the [cloudflare-ddns](https://github.com/wyattjoh/cloudflare-ddns/)
+tool.
 
 ```sh
 brew install wyattjoh/stable/cloudflare-ddns
@@ -48,4 +49,12 @@ Tap for the [vercel-scripts](https://github.com/wyattjoh/vercel-scripts) tool.
 
 ```sh
 brew install wyattjoh/stable/vercel-scripts
+```
+
+## Install train-conductor from brew
+
+Tap for the [train-conductor](https://github.com/wyattjoh/train-conductor) tool.
+
+```sh
+brew install wyattjoh/stable/train-conductor
 ```
