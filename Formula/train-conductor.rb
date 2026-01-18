@@ -3,7 +3,7 @@ class TrainConductor < Formula
   homepage "https://github.com/wyattjoh/train-conductor"
   url "https://github.com/wyattjoh/train-conductor.git",
       tag:      "v0.1.0",
-      revision: "0a51e6116281ac6ad0c78d7ea818971207dacd94"
+      revision: "10fba301b2b730ba27f1dce3b76e5f80423a86c3"
   license "MIT"
   head "https://github.com/wyattjoh/train-conductor.git", branch: "main"
 
