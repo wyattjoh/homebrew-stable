@@ -2,8 +2,8 @@ class Conduit < Formula
   desc "A CLI tool for setting up git worktrees with symlinks and scripts"
   homepage "https://github.com/wyattjoh/conduit"
   url "https://github.com/wyattjoh/conduit.git",
-      tag:      "v0.3.0",
-      revision: "ab3309d2789a3d8c12b6e2b38d63bfc9ff665474"
+      tag:      "v0.4.0",
+      revision: "0848ecf4383b509e60a020e128858d8cb9c403f3"
   license "MIT"
   head "https://github.com/wyattjoh/conduit.git", branch: "main"
 
