@@ -58,3 +58,11 @@ Tap for the [conduit](https://github.com/wyattjoh/conduit) tool.
 ```sh
 brew install wyattjoh/stable/conduit
 ```
+
+## Install resticprofile from brew
+
+Tap for the [resticprofile](https://github.com/wyattjoh/resticprofile) fork.
+
+```sh
+brew install wyattjoh/stable/resticprofile
+```
