@@ -1,21 +1,21 @@
 class StackedPrs < Formula
   desc "Manage stacked branches and pull requests"
   homepage "https://github.com/wyattjoh/stacked-prs"
-  version "1.9.1"
+  version "1.10.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/wyattjoh/stacked-prs/releases/download/stacked-prs-v1.9.1/stacked-prs-aarch64-apple-darwin.tar.gz"
-      sha256 "57e0a6e514007d45f2b7bb39a5d1165dff247e8e98d83d635cde749ed3389a96"
+      url "https://github.com/wyattjoh/stacked-prs/releases/download/stacked-prs-v1.10.0/stacked-prs-aarch64-apple-darwin.tar.gz"
+      sha256 "3e0050cf34ff72a238f00886f3345208cc21958733a6f7996a0befb7c929079f"
 
       def install
         bin.install "stacked-prs"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/stacked-prs/releases/download/stacked-prs-v1.9.1/stacked-prs-x86_64-apple-darwin.tar.gz"
-      sha256 "1890afc84c184bccd7540d69b9f3c5c47b4a69c369b74acdc09b57bed67bfc26"
+      url "https://github.com/wyattjoh/stacked-prs/releases/download/stacked-prs-v1.10.0/stacked-prs-x86_64-apple-darwin.tar.gz"
+      sha256 "a02c2c21ff6f9c5816f10f7a7c30dc19f85e60936fdd8fb731c48b9f6dfbd3bc"
 
       def install
         bin.install "stacked-prs"
@@ -25,16 +25,16 @@ class StackedPrs < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wyattjoh/stacked-prs/releases/download/stacked-prs-v1.9.1/stacked-prs-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "3c0982fd416b2e3f5af21a8493be9b3e845d2c49cf4ba6af5fcbd42353f5980b"
+      url "https://github.com/wyattjoh/stacked-prs/releases/download/stacked-prs-v1.10.0/stacked-prs-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "d3d9d0a6c78b34f2dadb0e7352fa9060d9d5413346354be9faf5c373d722341f"
 
       def install
         bin.install "stacked-prs"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/wyattjoh/stacked-prs/releases/download/stacked-prs-v1.9.1/stacked-prs-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "5fa18b0b902b44ecb664995abba83dcc191b023109919218c371bb16e4c605ad"
+      url "https://github.com/wyattjoh/stacked-prs/releases/download/stacked-prs-v1.10.0/stacked-prs-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "d9051b5726d598fd635d62208f07f436326e91d54f3cd4bed7becc6d72977c5f"
 
       def install
         bin.install "stacked-prs"
