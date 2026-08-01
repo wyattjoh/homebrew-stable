@@ -4,8 +4,8 @@
 class Pando < Formula
   desc "Inspect and switch between Git worktrees"
   homepage "https://github.com/wyattjoh/pando"
-  url "https://github.com/wyattjoh/pando/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "1caeae3731aa9fba44f6675d39454df83482bd36abad9bfd62e18562739dc6f6"
+  url "https://github.com/wyattjoh/pando/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "dbdf16d3f290cfb8c4a7b721702ed30b8fc728c357bc7d6a44a9a21fb7bec66f"
   license "MIT"
   head "https://github.com/wyattjoh/pando.git", branch: "main"
 
