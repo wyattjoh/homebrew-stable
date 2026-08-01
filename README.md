@@ -66,3 +66,11 @@ Tap for the [resticprofile](https://github.com/wyattjoh/resticprofile) fork.
 ```sh
 brew install wyattjoh/stable/resticprofile
 ```
+
+## Install pando from brew
+
+Tap for the [pando](https://github.com/wyattjoh/pando) tool.
+
+```sh
+brew install wyattjoh/stable/pando
+```
