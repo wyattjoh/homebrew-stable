@@ -25,18 +25,40 @@ function compareVersions(left: string, right: string): number {
   return 0;
 }
 
-function structure(cask: string): string {
-  return (
-    cask
-      // GoReleaser replaced its historical comment with this declarative stanza.
-      .replace(/^\s*# No zap stanza required\s*$/gm, "zap :not_required")
-      .replace(/^(\s*version )"\d+\.\d+\.\d+"\s*$/gm, '$1"VERSION"')
-      .replace(/^(\s*sha256 )"[a-f0-9]{64}"\s*$/gm, '$1"SHA256"')
-      .split("\n")
-      .map((line) => line.trim())
-      .filter((line) => line !== "")
-      .join("\n")
-  );
+function inspectCask(cask: string) {
+  const version = versionFrom(cask);
+  const archives = new Map<string, string>();
+  const normalized = cask
+    // GoReleaser replaced its historical comment with this declarative stanza.
+    .replace(/^\s*# No zap stanza required\s*$/gm, "zap :not_required")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line !== "")
+    .join("\n");
+  const structure = normalized
+    .replace(/^version "\d+\.\d+\.\d+"$/gm, 'version "VERSION"')
+    .replace(
+      /^on_(macos|linux) do\n((?:on_(?:intel|arm) do\nsha256 "[a-f0-9]{64}"\nurl "[^"\n]+"\nend\n){2})end$/gm,
+      (_block, os: string, body: string) => {
+        for (const match of body.matchAll(
+          /^on_(intel|arm) do\nsha256 "([a-f0-9]{64})"\nurl "([^"\n]+)"\nend$/gm,
+        )) {
+          const platform = `${os === "macos" ? "darwin" : "linux"}_${match[1] === "intel" ? "amd64" : "arm64"}`;
+          const archive = `ims_v${version}_${platform}.tar.gz`;
+          const expectedURL = `${downloadRoot}v${version}/${archive}`;
+          if (match[3].replaceAll("#{version}", version) !== expectedURL) {
+            throw new Error(`Unexpected cask archive URL: ${match[3]}`);
+          }
+          if (archives.has(archive)) throw new Error(`Duplicate cask platform: ${platform}`);
+          archives.set(archive, match[2]);
+        }
+        // Each recognized platform block was fully parsed and its URLs checked.
+        // Preserve all other Ruby verbatim for comparison with the trusted cask.
+        return "PLATFORM";
+      },
+    );
+  if (archives.size !== 4) throw new Error("Cask structure changed: expected four platforms");
+  return { structure, archives };
 }
 
 function checksum(bytes: Uint8Array): string {
@@ -95,25 +117,19 @@ export async function prepareUpdate(current: string, load: Loader): Promise<Upda
   const base = `${downloadRoot}${release.tag_name}/`;
   const cask = text(await load(`${base}ims.rb`));
   if (versionFrom(cask) !== version) throw new Error("Cask version does not match release");
-  if (structure(cask) !== structure(current)) {
+  const inspected = inspectCask(cask);
+  if (inspected.structure !== inspectCask(current).structure) {
     throw new Error("Cask structure changed; review the generated Ruby manually");
   }
 
   const manifest = text(await load(`${base}${manifestName}`));
-  const hashes = [...cask.matchAll(/^\s*sha256 "([a-f0-9]{64})"\s*$/gm)].map((match) => match[1]);
-  const urls = [...cask.matchAll(/^\s*url "([^"\n]+)"\s*$/gm)].map((match) =>
-    match[1].replaceAll("#{version}", version),
-  );
-  if (hashes.length !== 4 || urls.length !== 4) throw new Error("Expected four cask archives");
-
-  for (const [index, archive] of archives.entries()) {
-    const url = `${base}${archive}`;
-    if (urls[index] !== url) throw new Error(`Unexpected cask archive URL: ${urls[index]}`);
+  for (const archive of archives) {
+    const hash = inspected.archives.get(archive);
     const entries = manifest.split(/\r?\n/).filter((line) => line.endsWith(`  ${archive}`));
-    if (entries.length !== 1 || entries[0] !== `${hashes[index]}  ${archive}`) {
+    if (!hash || entries.length !== 1 || entries[0] !== `${hash}  ${archive}`) {
       throw new Error(`Cask/checksum manifest mismatch: ${archive}`);
     }
-    if (checksum(await load(url)) !== hashes[index]) {
+    if (checksum(await load(`${base}${archive}`)) !== hash) {
       throw new Error(`Downloaded archive checksum mismatch: ${archive}`);
     }
   }

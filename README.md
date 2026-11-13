@@ -50,9 +50,11 @@ asset. In the IMS GoReleaser configuration, retain the existing cask fields, set
 v1.5.12 release does not have that asset; until an eligible release is available,
 the updater reports that the release is not ready and leaves the tap unchanged.
 
-The updater never evaluates downloaded Ruby. It only accepts version/checksum
-changes to the existing cask structure (including GoReleaser's equivalent
-`zap :not_required` stanza); structural changes require manual review. Missing or
+The updater never evaluates downloaded Ruby. It validates the four OS/architecture
+blocks independently of their ordering, accepting interpolated URLs or literal
+tags only when they resolve to the exact release archive. Version/checksum changes
+and GoReleaser's equivalent `zap :not_required` stanza are allowed; all other
+structural changes require manual review. Missing or
 still-uploading assets defer an update, while invalid metadata, checksums, or
 attempted downgrades fail the workflow. Each request has a timeout, and files are
 size-limited. Checksums detect inconsistent downloads, not compromise of the

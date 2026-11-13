@@ -67,6 +67,35 @@ describe("IMS cask updater", () => {
     expect((await prepareUpdate(current, f.load)).content).toBe(updated);
   });
 
+  test("accepts an exact literal release tag in cask URLs", async () => {
+    const f = fixture();
+    const cask = f.cask.replaceAll("/v#{version}/", `/v${version}/`);
+    f.files.set(`${base}ims.rb`, bytes(cask));
+    expect((await prepareUpdate(current, f.load)).content).toBe(cask);
+  });
+
+  test("accepts real GoReleaser v2.20.2 output with ARM blocks first", async () => {
+    const f = fixture();
+    const generated = readFileSync(
+      new URL("fixtures/goreleaser-v2.20.2.rb", import.meta.url),
+      "utf8",
+    );
+    // Keep the real generated structure; substitute stable release metadata and
+    // the archive hashes used by this deterministic, network-free fixture.
+    const cask = generated
+      .replace('version "1.5.12-SNAPSHOT-da4661c"', `version "${version}"`)
+      .replaceAll("/v1.5.12/", `/v${version}/`)
+      .replace(
+        /sha256 "[a-f0-9]{64}"(\s+url "[^"\n]+_(darwin|linux)_(amd64|arm64)\.tar\.gz")/g,
+        (_match, suffix: string, os: string, arch: string) => {
+          const archive = f.files.get(`${base}ims_v${version}_${os}_${arch}.tar.gz`)!;
+          return `sha256 "${createHash("sha256").update(archive).digest("hex")}"${suffix}`;
+        },
+      );
+    f.files.set(`${base}ims.rb`, bytes(cask));
+    expect((await prepareUpdate(current, f.load)).content).toBe(cask);
+  });
+
   test("already-current versions do not download assets or rewrite the cask", async () => {
     const f = fixture();
     f.release.tag_name = `v${previous}`;
@@ -134,6 +163,36 @@ describe("IMS cask updater", () => {
   test("rejects changed download origins", async () => {
     const f = fixture();
     f.files.set(`${base}ims.rb`, bytes(f.cask.replaceAll("github.com", "example.com")));
+    await expect(prepareUpdate(current, f.load)).rejects.toThrow("Unexpected cask archive URL");
+  });
+
+  test("rejects a literal URL for a different release", async () => {
+    const f = fixture();
+    f.files.set(`${base}ims.rb`, bytes(f.cask.replaceAll("/v#{version}/", "/v0.0.1/")));
+    await expect(prepareUpdate(current, f.load)).rejects.toThrow("Unexpected cask archive URL");
+  });
+
+  test("rejects an archive assigned to the wrong architecture", async () => {
+    const f = fixture();
+    f.files.set(`${base}ims.rb`, bytes(f.cask.replaceAll("on_intel do", "on_arm do")));
+    await expect(prepareUpdate(current, f.load)).rejects.toThrow("Unexpected cask archive URL");
+  });
+
+  test("rejects duplicate OS blocks", async () => {
+    const f = fixture();
+    f.files.set(
+      `${base}ims.rb`,
+      bytes(f.cask.replace("on_linux do", "on_macos do").replaceAll("_linux_", "_darwin_")),
+    );
+    await expect(prepareUpdate(current, f.load)).rejects.toThrow("Duplicate cask platform");
+  });
+
+  test("rejects injected Ruby inside a platform block", async () => {
+    const f = fixture();
+    f.files.set(
+      `${base}ims.rb`,
+      bytes(f.cask.replace("on_arm do", "on_arm do\n      system 'bad'")),
+    );
     await expect(prepareUpdate(current, f.load)).rejects.toThrow("structure changed");
   });
 
